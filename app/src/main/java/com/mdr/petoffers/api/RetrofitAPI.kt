@@ -9,7 +9,7 @@ class RetrofitAPI<T> {
 
     fun getClient(c: Class<T>) : T {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:5000")
+            .baseUrl("https://10.13.104.64:5001")
             .addConverterFactory(GsonConverterFactory.create())
             .client(getOkhttpClient())
             .build()

@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.loading.*
 import android.net.Uri
+import android.util.Log
 import com.mdr.petoffers.view.forms.Login
 import java.io.*
 import java.util.*
@@ -33,15 +34,15 @@ class MainActivity : AppCompatActivity() {
             .get(MainViewModel::class.java)
 
 
-        var uniqueID= readFileContent("dados.data")
-        if(uniqueID.toString()!=null && uniqueID.toString().trim()!="") {
-            uniqueID = UUID.randomUUID().toString()
-            writeFileContent("dados.data", uniqueID)
+        var id:String= readFileContent("dados.data")
+        if(id.toString()!=null && id.toString().trim()!="") {
+            id = UUID.randomUUID().toString()
+            writeFileContent("dados.data", id)
         }
 
         registerObservers()
 
-        mainViewModel.login(uniqueID)
+        mainViewModel.login(id)
 
 
         /*fab.setOnClickListener { view ->
@@ -89,6 +90,11 @@ class MainActivity : AppCompatActivity() {
                 this,
                 it, Toast.LENGTH_LONG
             ).show()
+            tvError.visibility = View.VISIBLE
+            tvError.text=it
+            Log.d("ek", it)
+        } else {
+            tvError.visibility = View.GONE
         }
     }
 
@@ -127,16 +133,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun readFileContent(uri: String): String {
-        var fileInputStream: FileInputStream? = null
-        fileInputStream = openFileInput(uri)
-        var inputStreamReader: InputStreamReader = InputStreamReader(fileInputStream)
-        val bufferedReader: BufferedReader = BufferedReader(inputStreamReader)
-        val stringBuilder: StringBuilder = StringBuilder()
-        var text: String? = null
-        while ({ text = bufferedReader.readLine(); text }() != null) {
-            stringBuilder.append(text)
-        }
-        return stringBuilder.toString()
+        return ""
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu): Boolean {

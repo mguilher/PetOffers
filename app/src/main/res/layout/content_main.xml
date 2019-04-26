@@ -16,4 +16,16 @@
 
     <include layout="@layout/loading"/>
 
+    <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:linksClickable="true"
+            android:padding="32dp"
+            android:text="erro"
+            android:autoLink="all"/>
+
 </FrameLayout>
