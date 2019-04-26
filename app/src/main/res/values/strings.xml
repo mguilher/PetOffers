@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PetOffers</string>
+    <string name="tvEmail">E-mail</string>
+    <string name="tvPwd">Senha</string>
+    <string name="btLogin">Login</string>
+    <string name="tvRegister">Registrar-se</string>
+    <string name="tvTitle">Bem Vindo</string>
+    <string name="title_activity_list_pets">ListPets</string>
+</resources>
